@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import RateLimitedUI from "../components/RateLimitedUI";
+import { AxiosError } from "axios";
 import NoteCard, { type Note } from "../components/NoteCard";
 import api from "../lib/axios";
 import NotesNotFound from "../components/NotesNotFound";
