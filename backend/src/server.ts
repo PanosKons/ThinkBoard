@@ -9,6 +9,7 @@ import path from "path";
 dotenv.config();
 const app = express();
 const PORT: string = process.env.PORT!;
+const mydirname = path.resolve();
 
 if (process.env.NODE_ENV !== "production") {
   app.use(
@@ -22,10 +23,10 @@ app.use(express.json());
 app.use("/api/notes", notesRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  app.use(express.static(path.join(mydirname, "../frontend/dist")));
 
   app.get("/", (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+    res.sendFile(path.join(mydirname, "../frontend/dist/index.html"));
   });
 }
 
